@@ -1,0 +1,68 @@
+{
+  "name": "codedeploy",
+  "displayName": "codeDeploy",
+  "description": "An AI powered code deploy extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codedeploy.codeDeploy",
+        "title": "codeDeploy: Code Deploy Dashboard"
+      },
+      {
+        "command": "codedeploy.scanCodebase",
+        "title": "codeDeploy: Generate Docker File"
+      },
+      {
+        "command": "codedeploy.generateDocumentation",
+        "title": "codeDeploy: Generate Documentation"
+      },
+      {
+        "command": "codedeploy.generateApiDocumentationDisposable",
+        "title": "codeDeploy: Generate API Documentation"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "codeDeploy Configuration",
+      "properties": {
+        "codedeploy.geminiApiKey": {
+          "type": "string",
+          "default": "AIzaSyA4gs3MiVG3FAo4VCOG8JgUityEzKT1uGs",
+          "description": "API key for Gemini API"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.14.1",
+    "axios": "^1.7.2",
+    "docx": "^8.5.0",
+    "dotenv": "^16.4.5",
+    "jsdom": "^24.1.0",
+    "marked": "^13.0.2",
+    "pdf-lib": "^1.17.1"
+  }
+}
